@@ -1,39 +1,44 @@
- import React from 'react'
- import styled from 'styled-components'
- 
- function Section({title, description, leftBtnText, rightBtnText, backgroundImg}) {
-     
-   return (
-     <Wrap bgImage={backgroundImg}>
-         <Itemtext>
-             <h1>{ title }</h1>
-             <p>{ description }</p>
-         </Itemtext>
-         <Buttons>
-         <ButtonGroup>
-             <LeftButton>
-                   {leftBtnText}
-             </LeftButton>
-             { rightBtnText &&
-                  <RightButton>
-                  {rightBtnText}
-                  </RightButton>
- }
-         </ButtonGroup>        
+import React from 'react'
+import styled from 'styled-components'
+import Fade from 'react-reveal/Fade';
+
+function Section({ title, description, leftBtnText, rightBtnText, backgroundImg }) {
+
+  return (
+    <Wrap bgImage={backgroundImg}>
+      <Fade bottom>
+        <Itemtext>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </Itemtext>
+      </Fade>
+      <Buttons>
+      <Fade bottom>
+        <ButtonGroup>
+          <LeftButton>
+            {leftBtnText}
+          </LeftButton>
+          {rightBtnText &&
+            <RightButton>
+              {rightBtnText}
+            </RightButton>
+          }
+        </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg" />
-        </Buttons>
+      </Buttons>
 
-     </Wrap>
-   )
- }
- 
- export default Section
+    </Wrap>
+  )
+}
 
- const Wrap = styled.div`
- width: 100%;
+export default Section
+
+const Wrap = styled.div`
+ width: 100vw;
     height: 100vh;
     background-size: cover;
-    background-position: canter;
+    background-position: center;
     background-repeat: no-repeat;
     background-image: url('/images/model-s.jpg');
     display: flex;
